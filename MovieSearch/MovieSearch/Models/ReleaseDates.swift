@@ -45,6 +45,6 @@ struct ReleaseDate: Codable {
     enum CodingKeys: String, CodingKey {
         case mpaaRating = "certification"
         case releaseDate = "release_date"
-        case releaseType
+        case releaseType = "type"
     }
 }

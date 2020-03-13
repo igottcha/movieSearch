@@ -82,9 +82,9 @@ class MovieController {
         
         guard let baseURL = baseURL else { return completion(.failure(.invalidURL)) }
         
-        let releaseDateURL = baseURL.appendingPathComponent(movieEndpoint).appendingPathComponent(String(id))
+        let releaseDateURL = baseURL.appendingPathComponent(movieEndpoint).appendingPathComponent(String(id)).appendingPathComponent(releaseDatesEndpoint)
         var urlComponents = URLComponents(url: releaseDateURL, resolvingAgainstBaseURL: true)
-        urlComponents?.queryItems = [URLQueryItem(name: "api_Key", value: api_Key)]
+        urlComponents?.queryItems = [URLQueryItem(name: "api_key", value: api_Key)]
         
         guard let finalURL = urlComponents?.url else { return }
         print(finalURL)
@@ -104,7 +104,8 @@ class MovieController {
                 let usReleaseLocations = releaseLocations.filter { $0.countryCode == "US"}
                 guard let releaseDates = usReleaseLocations.first?.releaseDates else { return completion(.failure(.unableToDecode))}
                 print(releaseDates)
-                guard let mpaaRating = releaseDates.first?.mpaaRating else { return completion(.failure(.unableToDecode))}
+                let theatreReleases = releaseDates.filter { $0.releaseType == 3 }
+                guard let mpaaRating = theatreReleases.first?.mpaaRating else { return completion(.failure(.unableToDecode))}
                 print(mpaaRating)
                 return completion(.success(mpaaRating))
             } catch {

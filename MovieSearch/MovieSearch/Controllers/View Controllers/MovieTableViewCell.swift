@@ -45,7 +45,10 @@ class MovieTableViewCell: UITableViewCell {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let rating):
-                    self.mpaaRatingLabel.text = rating
+                    self.mpaaRatingLabel.text = "MPAA Rating: \(rating)"
+                    if rating == "" {
+                        self.mpaaRatingLabel.text = "MPAA Rating: N/A"
+                    }
                 case .failure(let error):
                     print("Unable to fetch MPAA Rating for \(movie.title)\n\(error.localizedDescription)")
                 }
