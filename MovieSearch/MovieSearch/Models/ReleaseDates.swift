@@ -11,6 +11,11 @@ import Foundation
 struct ReleaseDateSearchResults: Codable {
     let movieId: Int
     let results: [Location]
+    
+    enum CodingKeys: String, CodingKey {
+        case movieId = "id"
+        case results
+    }
 }
 
 struct Location: Codable {

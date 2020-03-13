@@ -17,6 +17,8 @@
 		9EB733B9241BF315003724EE /* MovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB733B8241BF315003724EE /* MovieController.swift */; };
 		9EB733BC241BF680003724EE /* MovieError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB733BB241BF680003724EE /* MovieError.swift */; };
 		9EB733BE241BF6B3003724EE /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB733BD241BF6B3003724EE /* UIViewControllerExtension.swift */; };
+		9EB733C0241C04F0003724EE /* MovieListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB733BF241C04F0003724EE /* MovieListTableViewController.swift */; };
+		9EB733C2241C08AC003724EE /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB733C1241C08AC003724EE /* MovieTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		9EB733B8241BF315003724EE /* MovieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieController.swift; sourceTree = "<group>"; };
 		9EB733BB241BF680003724EE /* MovieError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieError.swift; sourceTree = "<group>"; };
 		9EB733BD241BF6B3003724EE /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		9EB733BF241C04F0003724EE /* MovieListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListTableViewController.swift; sourceTree = "<group>"; };
+		9EB733C1241C08AC003724EE /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,8 @@
 		9EB733B2241BDDDC003724EE /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9EB733BF241C04F0003724EE /* MovieListTableViewController.swift */,
+				9EB733C1241C08AC003724EE /* MovieTableViewCell.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -206,7 +212,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EB733C0241C04F0003724EE /* MovieListTableViewController.swift in Sources */,
 				9EB7339B241BDDA2003724EE /* AppDelegate.swift in Sources */,
+				9EB733C2241C08AC003724EE /* MovieTableViewCell.swift in Sources */,
 				9EB733BC241BF680003724EE /* MovieError.swift in Sources */,
 				9EB733B9241BF315003724EE /* MovieController.swift in Sources */,
 				9EB7339D241BDDA2003724EE /* SceneDelegate.swift in Sources */,

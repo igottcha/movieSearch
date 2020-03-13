@@ -11,17 +11,19 @@ import UIKit
 class MovieController {
     
     //MARK: - Properties
-    
+
     static var movies: [Movie] = []
     
     private static let baseURL = URL(string: "https://api.themoviedb.org/3")
-    private static let baseImageURL = URL(string: "http://image.tmdb.org/t/p/w500")
+    private static let baseImageURL = URL(string: "https://image.tmdb.org/t/p/w500")
     private static let searchEndpoint = "search"
     private static let movieEndpoint = "movie"
     private static let api_Key = "77067d8899800d1a6a1e48b3b0fa1854"
-    private static let languageKey = "language"
+    private static let languageName = "language"
     private static let englishUSLanguageValue = "en-US"
-    private static let queryKey = "query"
+    private static let queryName = "query"
+    private static let adultName = "adult"
+    private static let adultValue = "false"
     private static let releaseDatesEndpoint = "release_dates"
     
     static func fetchMovies(searchItem: String, completion: @escaping (Result<[Movie], MovieError>) -> Void) {
@@ -30,7 +32,7 @@ class MovieController {
         
         let searchURL = baseURL.appendingPathComponent(searchEndpoint).appendingPathComponent(movieEndpoint)
         var urlComponents = URLComponents(url: searchURL, resolvingAgainstBaseURL: true)
-        urlComponents?.queryItems = [URLQueryItem(name: "api_Key", value: api_Key), URLQueryItem(name: languageKey, value: englishUSLanguageValue), URLQueryItem(name: queryKey, value: searchItem)]
+        urlComponents?.queryItems = [URLQueryItem(name: "api_key", value: api_Key), URLQueryItem(name: languageName, value: englishUSLanguageValue), URLQueryItem(name: queryName, value: searchItem), URLQueryItem(name: adultName, value: adultValue)]
         
         guard let finalURL = urlComponents?.url else { return }
         print(finalURL)
@@ -57,9 +59,9 @@ class MovieController {
         }.resume()
     }
     
-    static func fetchImage(posterPath: String, completion: @escaping (Result<UIImage, MovieError>) -> Void) {
+    static func fetchImage(posterPath: String?, completion: @escaping (Result<UIImage, MovieError>) -> Void) {
         
-        guard let baseImageURL = baseImageURL else { return completion(.failure(.invalidURL))}
+        guard let baseImageURL = baseImageURL, let posterPath = posterPath else { return completion(.failure(.invalidURL))}
         let imageURL = baseImageURL.appendingPathComponent(posterPath)
         print(imageURL)
         
